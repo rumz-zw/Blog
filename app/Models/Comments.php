@@ -10,6 +10,5 @@ class Comments extends Model
         'content',
         'created_by',
         'status',
-        'image',
     ];
 }
