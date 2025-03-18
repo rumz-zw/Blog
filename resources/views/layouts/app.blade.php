@@ -23,7 +23,14 @@
         <div class="container">
             <div class="header_menu">
                 <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt=""></a>
+                    @guest
+                    <a class="nav-link" href="/login">Login</a>
+                    @else
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('Logout-form').submit();">Logout</a>
+                    @endguest
+                    <form id="Logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     <!-- Small Divice Menu-->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar_supported" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars" aria-hidden="true"></i>
